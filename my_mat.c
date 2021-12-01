@@ -16,12 +16,12 @@ void yon_path(int arr[v][v]){
 
     int first;
     int second;
-    //while (first < 0 || first > v){
+    while (first < 0 || first > v){
         scanf("%d", &first);
-  //  }
-    //while (second < 0 || second > v){
+    }
+    while (second < 0 || second > v){
         scanf("%d", &second);
-   // }
+    }
 
     int mat[v][v];
 		for (int i=0;i<v;i++) {
@@ -56,12 +56,12 @@ void yon_path(int arr[v][v]){
 void what_path(int arr[v][v]){
     int first;
     int second;
-    //while (first < 0 || first > v){
+    while (first < 0 || first > v){
         scanf("%d", &first);
-   // }
-    //while (second < 0 || second > v){
+    }
+    while (second < 0 || second > v){
         scanf("%d", &second);
-   // }
+    }
     
     int mat[v][v];
 		for (int i=0;i<v;i++) {
@@ -98,20 +98,20 @@ void what_path(int arr[v][v]){
 
 }
 
-// void directory(){
-// 	char act='c';
-// 	while (act!='D'){
-// 		scanf("%c",&act);
-// 		if (act=='A'){
-// 			make_mat(arr);
+ void directory(){
+	char act='c';
+	while (act!='D'){
+	scanf("%c",&act);
+	if (act=='A'){
+	make_mat(arr);
          
-// 		}
-// 		else if (act=='B'){
-// 			yon_path(arr);
+	}
+ 		else if (act=='B'){
+			yon_path(arr);
           
-// 		else if(act=='C'){
-// 			what_path(arr);
+ 		else if(act=='C'){
+			what_path(arr);
           
-// 		}
-// 	}		
+ 		}
+ 	}		
 }	
