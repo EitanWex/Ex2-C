@@ -1,38 +1,22 @@
-// #include <stdio.h>
-
-// #include "my_mat.h"
-// #include "my_mat.c"
-// #define v 10
-
-// int mat[v][v];
-
-
-// int main(){
-	
-//     directory();
-   
-// return 0;	
-// }	
 #include <stdio.h>
 #include "my_mat.h"
 int main()
 {
-char a;
-scanf("%c",  &a);
-while (a!='D')
+char c;
+scanf("%c",  &c);
+while (c!='D')
 {
-    if(a=='A'){
-      matrixA();
-    }
-    if(a=='B'){
-        matrixB();
-    }
-    if(a=='C'){
-        matrixC();
-        printf("\n");
-    }
+    if(c=='A'){
+         make_mat(); }
 
-    scanf("%c",  &a);
+    if(c=='B'){
+         yon_path(); }
+
+    if(c=='C'){
+         what_path();
+         printf("\n"); }
+
+    scanf("%c",  &c);
 
 }
 return 0;

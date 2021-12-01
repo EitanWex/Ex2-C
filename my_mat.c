@@ -2,60 +2,48 @@
 #define v 10
 
 int arr[v][v];
+void make_mat(int arr[v][v]){ 
 
-void is_path(int arr[v][v]){
+    for (int i = 0; i < v; i++){ 
+        for (int j = 0; j < v; j++){ 
+         
+                    scanf("%d", &arr[j][i]);
+             
+        }
+    }
 
-    //printf("plaese pick 2 numbers between 0 and %d\n", v);
-    int first = -1;
-    int second = -1;
-    while (first < 0 || first > v){
+void yon_path(int arr[v][v]){
+
+    int first;
+    int second;
+    //while (first < 0 || first > v){
         scanf("%d", &first);
-    }
-    while (second < 0 || second > v){
+  //  }
+    //while (second < 0 || second > v){
         scanf("%d", &second);
-    }
-    //printf( "first= %d, secound= %d\n", first, second);
+   // }
+
     int mat[v][v];
 		for (int i=0;i<v;i++) {
 			for (int j=0;j<v;j++) {
 				mat[i][j]=arr[i][j];				
 			}
 		}
-		//int a;
-		//int b;
-		for (int a = 0; a < v; a++){
-			for ( int b = 0; b < v; b++){ 
-				for (int c = 0; c < v; c++){
-					if (mat[b][a] != 0 && mat[a][c] != 0){
-						if (mat[b][c] > mat[b][a] + mat[a][c] || mat[b][c]==0){
-							//a=mat[][] ;
-							//b=mat[][];
-							mat[b][c] =  mat[b][a] + mat[a][c] ;
-							mat[c][b] =  mat[b][a] + mat[a][c] ;
-							mat[c][c]=0;
+		for (int i = 0; i < v; i++){
+			for ( int j = 0; j < v; j++){ 
+				for (int k = 0; k < v; k++){
+					if (mat[j][i] != 0 && mat[i][k] != 0){
+						if (mat[j][k] > mat[j][i] + mat[i][k] || mat[j][k]==0){
+							mat[j][k] =  mat[j][i] + mat[i][k] ;
+							mat[k][j] =  mat[j][i] + mat[i][k] ;
+							mat[k][k]=0;
 						}
 					}
 				}
 			}
 		}
 		
- /*   
-// printing the mat for me to see
-    int row=0;
-    for (int i=0;i<v;i++){ // row
-         for (int j=0;j<v;j++){ // column
-            if(i==row){
-            printf("%d  ,",mat[i][j]) ;
-            }
-            else{
-                row=row+1;
-                printf("\n");
-                printf("%d  ,",mat[i][j]) ;
-            }
-       }
-}
-printf("\n");
-*/
+ 
     
     if (mat[first][second] == 0){
         printf("False\n");
@@ -65,38 +53,30 @@ printf("\n");
     }
 }
 
-void path_len(int arr[v][v]){
-
-
-    //printf("plaese pick 2 numbers between 0 and %d\n", v);
-    int first = -1;
-    int second = -1;
-    while (first < 0 || first > v){
+void what_path(int arr[v][v]){
+    int first;
+    int second;
+    //while (first < 0 || first > v){
         scanf("%d", &first);
-    }
-    while (second < 0 || second > v){
+   // }
+    //while (second < 0 || second > v){
         scanf("%d", &second);
-    }
+   // }
     
-    //printf( "first= %d, secound= %d\n", first, second);
     int mat[v][v];
 		for (int i=0;i<v;i++) {
 			for (int j=0;j<v;j++) {
 				mat[i][j]=arr[i][j];				
 			}
 		}
-		//int a;
-		//int b;
-		for (int a = 0; a < v; a++){
-			for ( int b = 0; b < v; b++){ 
-				for (int c = 0; c < v; c++){
-					if (mat[b][a] > 0 && mat[a][c] > 0){
-						if (mat[b][c] > mat[b][a] + mat[a][c] || mat[b][c]==0){
-							//a=mat[][] ;
-							//b=mat[][];
-							mat[b][c] =  mat[b][a] + mat[a][c] ;
-							mat[c][b] =  mat[b][a] + mat[a][c] ;
-							mat[c][c]=0;
+		for (int i = 0; i < v; i++){
+			for ( int j = 0; j < v; j++){ 
+				for (int k = 0; k < v; k++){
+					if (mat[j][i] > 0 && mat[i][k] > 0){
+						if (mat[j][k] > mat[j][i] + mat[i][k] || mat[j][k] == 0){
+							mat[j][k] =  mat[j][i] + mat[i][k] ;
+							mat[k][k] =  mat[j][i] + mat[i][k] ;
+							mat[k][k]=0;
 						}
 					}
 				}
@@ -105,23 +85,7 @@ void path_len(int arr[v][v]){
 		
     
 
-/*
-// printing the mat for me to see
-    int row=0;
-    for (int i=0;i<v;i++){ // row
-         for (int j=0;j<v;j++){ // column
-            if(i==row){
-            printf("%d  ,",mat[i][j]) ;
-            }
-            else{
-                row=row+1;
-                printf("\n");
-                printf("%d  ,",mat[i][j]) ;
-            }
-       }
-}
-printf("\n");
-*/
+
 
     if (mat[first][second] == 0){
         printf("-1\n");
@@ -131,61 +95,23 @@ printf("\n");
     }
 }
 
-void create_mat(int arr[v][v]){ 
-
-    for (int i = 0; i < v; i++){ // row
-        for (int j = 0; j < v; j++){ // column
-           // if (i == j){
-            //    arr[j][i] = 0;
-           // }
-           // else{
-             //   if (j > i) {
-                   // printf("please enter a positive number or zero:\n");
-                    scanf("%d", &arr[j][i]);
-               //     arr[i][j] = arr[j][i];
-                //}
-           // }
-        }
-    }
-    
-
- /*   
-    // printing the mat for me to see
-    int row=0;
-    for (int i=0;i<v;i++){ // row
-         for (int j=0;j<v;j++){ // column
-            if(i==row){
-            printf("%d  ,",arr[i][j]) ;
-            }
-            else{
-                row=row+1;
-                printf("\n");
-                printf("%d  ,",arr[i][j]) ;
-            }
-       }
-}
-printf("\n");
-*/
-
 
 }
 
-void directory(){
-	char act='a';
-  //  printf("please pick a action:\nA create a matrix\nB figure out of there is a path between 2 nodes\nC find the shortest distance between 2 nodes\nD end program\n");
-	while (act!='D'){
-		scanf("%c",&act);
-		if (act=='A'){
-			create_mat(arr);
-         //   printf("please pick a action:\nA create a matrix\nB figure out of there is a path between 2 nodes\nC find the shortest distance between 2 nodes\nD end program\n");
-		}
-		else if (act=='B'){
-			is_path(arr);
-          //  printf("please pick a action:\nA create a matrix\nB figure out of there is a path between 2 nodes\nC find the shortest distance between 2 nodes\nD end program\n");
-		}
-		else if(act=='C'){
-			path_len(arr);
-           // printf("please pick a action:\nA create a matrix\nB figure out of there is a path between 2 nodes\nC find the shortest distance between 2 nodes\nD end program\n");
-		}
-	}		
+// void directory(){
+// 	char act='c';
+// 	while (act!='D'){
+// 		scanf("%c",&act);
+// 		if (act=='A'){
+// 			make_mat(arr);
+         
+// 		}
+// 		else if (act=='B'){
+// 			yon_path(arr);
+          
+// 		else if(act=='C'){
+// 			what_path(arr);
+          
+// 		}
+// 	}		
 }	
